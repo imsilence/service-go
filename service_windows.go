@@ -67,7 +67,9 @@ func (ws *windowsService) Install() error {
 		return err
 	}
 	// Used if path contains a space.
-	exepath = `"` + exepath + `"`
+	//fix bug mgr package use syscall.EscapeArg
+	//exepath = `"` + exepath + `"`
+
 	m, err := mgr.Connect()
 	if err != nil {
 		return err
